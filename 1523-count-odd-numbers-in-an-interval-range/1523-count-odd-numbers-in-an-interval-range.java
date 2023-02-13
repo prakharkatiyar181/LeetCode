@@ -1,13 +1,14 @@
 class Solution {
     public int countOdds(int low, int high) {
-        int count=0;
-        int i=low;
-        if(i%2==0) 
-            i=i+1;
-        while(i<=high) {
-            count++;
-            i += 2;
+        // Initialize odd with the number of even numbers between low and high.
+        int odd = (high - low) / 2;
+        
+        // If either low or high is odd, increment odd by 1.
+        if (low % 2 == 1 || high % 2 == 1) {
+            odd++;
         }
-        return count;
+        
+        // Return the number of odd numbers between low and high.
+        return odd;
     }
 }
