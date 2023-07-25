@@ -1,27 +1,28 @@
+// import java.util.collections;
 class Solution {
     public int majorityElement(int[] nums) {
         int n = nums.length;
+        int value = 0;
+        int key = 0;
+        int maxValue = 0;
         int el = 0;
-        int cnt = 0;
-        int cnt1 = 0;
-        for(int i = 0; i < n; i++) {
-            if(cnt == 0) {
-                el = nums[i];
-                cnt = 1;
-            } else if(el == nums[i]) {
-                cnt++;
-            } else {
-                cnt--;
+        HashMap<Integer, Integer> mpp = new HashMap<Integer, Integer>();
+        for( int i=0; i<n ;i++) {
+            value = mpp.getOrDefault(nums[i],0);
+            value += 1;
+            mpp.put(nums[i], value);
+        }
+        for(Map.Entry<Integer, Integer> val: mpp.entrySet()) {
+            if(maxValue < val.getValue()) {
+                maxValue = val.getValue();
+                el = val.getKey();
             }
         }
-        for(int i = 0 ; i<n ; i++) {
-            if(nums[i] == el) {
-                cnt1++;
-            }
+        if( maxValue > n/2) {
+           return el; 
         }
-        if(cnt1 > n/2) {
-            return el;
-        }
-        return el;
+        return -1;
+        // int max = collections.max(mpp.keySet())
+        
     }
 }
