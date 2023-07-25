@@ -14,14 +14,14 @@ class Solution {
                 cnt--;
             }
         }
-        // for(int i = 0 ; i<n ; i++) {
-        //     if(nums[i] == el) {
-        //         cnt1++;
-        //     }
-        // }
-        // if(cnt1 > n/2) {
-        //     return el;
-        // }
+        for(int i = 0 ; i<n ; i++) {
+            if(nums[i] == el) {
+                cnt1++;
+            }
+        }
+        if(cnt1 > n/2) {
+            return el;
+        }
         return el;
     }
 }
